@@ -526,24 +526,12 @@
       display: flex;
       gap: 16px;
       width: max-content;
-      animation: marquee 48s linear infinite;
       will-change: transform;
       cursor: grab;
     }
 
     .ctrack.dragging {
       cursor: grabbing;
-      animation-play-state: paused;
-    }
-
-    @keyframes marquee {
-      from {
-        transform: translateX(0) translateZ(0);
-      }
-
-      to {
-        transform: translateX(-50%) translateZ(0);
-      }
     }
 
     .ci {
@@ -4235,50 +4223,25 @@
   </div>
 
   <div class="carousel-wrap">
-    <div class="ctrack">
-      <div class="ci"><svg viewBox="0 0 800 800" style="width:100%;height:100%;">
-          <use href="#m96-fill" />
-        </svg><svg viewBox="0 0 864 864"
-          style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;">
-          <use href="#m96-outline" />
-        </svg></div>
-      <div class="ci"><svg viewBox="0 0 800 800" style="width:100%;height:100%;">
-          <use href="#m15-fill" />
-        </svg></div>
-      <div class="ci"><svg viewBox="0 0 800 800" style="width:100%;height:100%;">
-          <use href="#m16-fill" />
-        </svg></div>
-      <div class="ci"><svg viewBox="0 0 800 800" style="width:100%;height:100%;">
-          <use href="#m9-fill" />
-        </svg></div>
-      <div class="ci"><svg viewBox="0 0 800 800" style="width:100%;height:100%;">
-          <use href="#m6-fill" />
-        </svg></div>
-      <div class="ci"><svg viewBox="0 0 800 800" style="width:100%;height:100%;">
-          <use href="#m5-fill" />
-        </svg></div>
-      <div class="ci"><svg viewBox="0 0 800 800" style="width:100%;height:100%;">
-          <use href="#m96-fill" />
-        </svg><svg viewBox="0 0 864 864"
-          style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;">
-          <use href="#m96-outline" />
-        </svg></div>
-      <div class="ci"><svg viewBox="0 0 800 800" style="width:100%;height:100%;">
-          <use href="#m15-fill" />
-        </svg></div>
-      <div class="ci"><svg viewBox="0 0 800 800" style="width:100%;height:100%;">
-          <use href="#m16-fill" />
-        </svg></div>
-      <div class="ci"><svg viewBox="0 0 800 800" style="width:100%;height:100%;">
-          <use href="#m9-fill" />
-        </svg></div>
-      <div class="ci"><svg viewBox="0 0 800 800" style="width:100%;height:100%;">
-          <use href="#m6-fill" />
-        </svg></div>
-      <div class="ci"><svg viewBox="0 0 800 800" style="width:100%;height:100%;">
-          <use href="#m5-fill" />
-        </svg></div>
-
+    <div class="ctrack" id="ctrack">
+      <!-- Set A — 8 cards -->
+      <div class="ci"><svg viewBox="0 0 800 800" style="width:100%;height:100%;"><use href="#m96-fill"/></svg><svg viewBox="0 0 864 864" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;"><use href="#m96-outline"/></svg></div>
+      <div class="ci"><svg viewBox="0 0 800 800" style="width:100%;height:100%;"><use href="#m96-fill"/></svg><svg viewBox="0 0 864 864" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;"><use href="#m96-outline"/></svg></div>
+      <div class="ci"><svg viewBox="0 0 800 800" style="width:100%;height:100%;"><use href="#m96-fill"/></svg><svg viewBox="0 0 864 864" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;"><use href="#m96-outline"/></svg></div>
+      <div class="ci"><svg viewBox="0 0 800 800" style="width:100%;height:100%;"><use href="#m96-fill"/></svg><svg viewBox="0 0 864 864" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;"><use href="#m96-outline"/></svg></div>
+      <div class="ci"><svg viewBox="0 0 800 800" style="width:100%;height:100%;"><use href="#m96-fill"/></svg><svg viewBox="0 0 864 864" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;"><use href="#m96-outline"/></svg></div>
+      <div class="ci"><svg viewBox="0 0 800 800" style="width:100%;height:100%;"><use href="#m96-fill"/></svg><svg viewBox="0 0 864 864" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;"><use href="#m96-outline"/></svg></div>
+      <div class="ci"><svg viewBox="0 0 800 800" style="width:100%;height:100%;"><use href="#m96-fill"/></svg><svg viewBox="0 0 864 864" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;"><use href="#m96-outline"/></svg></div>
+      <div class="ci"><svg viewBox="0 0 800 800" style="width:100%;height:100%;"><use href="#m96-fill"/></svg><svg viewBox="0 0 864 864" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;"><use href="#m96-outline"/></svg></div>
+      <!-- Set B — duplicate for seamless loop -->
+      <div class="ci"><svg viewBox="0 0 800 800" style="width:100%;height:100%;"><use href="#m96-fill"/></svg><svg viewBox="0 0 864 864" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;"><use href="#m96-outline"/></svg></div>
+      <div class="ci"><svg viewBox="0 0 800 800" style="width:100%;height:100%;"><use href="#m96-fill"/></svg><svg viewBox="0 0 864 864" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;"><use href="#m96-outline"/></svg></div>
+      <div class="ci"><svg viewBox="0 0 800 800" style="width:100%;height:100%;"><use href="#m96-fill"/></svg><svg viewBox="0 0 864 864" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;"><use href="#m96-outline"/></svg></div>
+      <div class="ci"><svg viewBox="0 0 800 800" style="width:100%;height:100%;"><use href="#m96-fill"/></svg><svg viewBox="0 0 864 864" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;"><use href="#m96-outline"/></svg></div>
+      <div class="ci"><svg viewBox="0 0 800 800" style="width:100%;height:100%;"><use href="#m96-fill"/></svg><svg viewBox="0 0 864 864" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;"><use href="#m96-outline"/></svg></div>
+      <div class="ci"><svg viewBox="0 0 800 800" style="width:100%;height:100%;"><use href="#m96-fill"/></svg><svg viewBox="0 0 864 864" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;"><use href="#m96-outline"/></svg></div>
+      <div class="ci"><svg viewBox="0 0 800 800" style="width:100%;height:100%;"><use href="#m96-fill"/></svg><svg viewBox="0 0 864 864" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;"><use href="#m96-outline"/></svg></div>
+      <div class="ci"><svg viewBox="0 0 800 800" style="width:100%;height:100%;"><use href="#m96-fill"/></svg><svg viewBox="0 0 864 864" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;"><use href="#m96-outline"/></svg></div>
     </div>
   </div>
 
@@ -4341,89 +4304,60 @@
   </script>
 
   <script>
-    // Carousel drag-to-scroll — mouse + touch
+    // Carousel — RAF-based infinite scroll + drag
     (function () {
-      const track = document.querySelector('.ctrack');
+      const track = document.getElementById('ctrack');
       if (!track) return;
 
-      // Read the current CSS translateX mid-animation so we can resume from there
-      function getCurrentX() {
-        const style = window.getComputedStyle(track);
-        const matrix = new DOMMatrix(style.transform);
-        return matrix.m41; // translateX value in px
+      const SPEED = 0.4;        // px per frame (~24px/s at 60fps)
+      let offset = 0;
+      let halfWidth = 0;
+      let dragging = false;
+      let dragStartX = 0;
+      let dragStartOffset = 0;
+
+      function applyOffset() {
+        halfWidth = track.scrollWidth / 2;
+        offset = ((offset % halfWidth) + halfWidth) % halfWidth;
+        track.style.transform = `translateX(-${offset}px) translateZ(0)`;
       }
 
-      // Total width of ONE set of items (half the track = the 50% the animation scrolls)
-      function getHalfWidth() {
-        return track.scrollWidth / 2;
+      function tick() {
+        if (!dragging) offset += SPEED;
+        applyOffset();
+        requestAnimationFrame(tick);
       }
 
-      let isDragging = false;
-      let startX = 0;
-      let baseX = 0;  // translateX when drag started
-      let dragDelta = 0;
-      const DRAG_THRESHOLD = 5; // px — below this is a tap, not a drag
-
-      function startDrag(clientX) {
-        isDragging = false; // not confirmed drag yet
-        dragDelta = 0;
-        startX = clientX;
-        baseX = getCurrentX();
-        // Pause animation but keep current position
-        track.style.transform = `translateX(${baseX}px)`;
-        track.style.animationPlayState = 'paused';
+      function onDragStart(clientX) {
+        dragging = true;
+        dragStartX = clientX;
+        dragStartOffset = offset;
+        track.classList.add('dragging');
       }
 
-      function moveDrag(clientX) {
-        const delta = clientX - startX;
-        dragDelta = delta;
-        if (Math.abs(delta) > DRAG_THRESHOLD) {
-          isDragging = true;
-          track.classList.add('dragging');
-        }
-        if (!isDragging) return;
-
-        let newX = baseX + delta;
-        const half = getHalfWidth();
-        // Wrap: keep x within [-half, 0]
-        newX = ((newX % -half) - half) % -half;
-        if (newX > 0) newX -= half;
-        track.style.transform = `translateX(${newX}px)`;
+      function onDragMove(clientX) {
+        if (!dragging) return;
+        offset = dragStartOffset - (clientX - dragStartX);
       }
 
-      function endDrag() {
-        if (!isDragging) {
-          // It was a tap — restore animation without jumping
-          track.classList.remove('dragging');
-          track.style.transform = '';
-          track.style.animationPlayState = '';
-          return;
-        }
-        isDragging = false;
+      function onDragEnd() {
+        dragging = false;
         track.classList.remove('dragging');
-
-        // Resume CSS animation from current drag position
-        const currentX = getCurrentX();
-        const half = getHalfWidth();
-        // Normalise to 0..half range and convert to a 0-1 animation progress
-        const normalised = Math.abs(currentX) % half;
-        const progress = normalised / half; // 0 to 1
-        const duration = 48; // seconds, matches CSS
-        const elapsed = progress * duration;
-        track.style.animationDelay = `-${elapsed}s`;
-        track.style.transform = '';
-        track.style.animationPlayState = '';
       }
 
-      // Mouse events
-      track.addEventListener('mousedown', e => { startDrag(e.clientX); });
-      window.addEventListener('mousemove', e => { if (startX !== null) moveDrag(e.clientX); });
-      window.addEventListener('mouseup', () => { if (startX !== null) { endDrag(); startX = null; } });
+      // Mouse
+      track.addEventListener('mousedown', e => onDragStart(e.clientX));
+      window.addEventListener('mousemove', e => onDragMove(e.clientX));
+      window.addEventListener('mouseup', onDragEnd);
 
-      // Touch events
-      track.addEventListener('touchstart', e => { startDrag(e.touches[0].clientX); }, { passive: true });
-      track.addEventListener('touchmove', e => { moveDrag(e.touches[0].clientX); }, { passive: true });
-      track.addEventListener('touchend', () => { endDrag(); startX = null; });
+      // Touch — non-passive so we can preventDefault and stop page scroll
+      track.addEventListener('touchstart', e => onDragStart(e.touches[0].clientX), { passive: true });
+      track.addEventListener('touchmove', e => {
+        if (dragging) { e.preventDefault(); onDragMove(e.touches[0].clientX); }
+      }, { passive: false });
+      track.addEventListener('touchend', onDragEnd);
+
+      requestAnimationFrame(tick);
     })();
   </script>
 </body>
