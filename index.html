@@ -190,9 +190,6 @@
       background: transparent;
       position: relative;
       overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
 
     /* Background mandala — large but atmospheric */
@@ -226,27 +223,24 @@
       height: 100%;
     }
 
-    /* Floating phone wrapper — explicit size so flex can centre it at all breakpoints */
+    /* Floating phone wrapper — absolute centering baked into the float keyframes */
     .phone-wrap {
-      position: relative;
+      position: absolute;
+      top: 50%;
+      left: 50%;
       z-index: 10;
       animation: float 3.5s ease-in-out infinite;
-      width: 260px;
-      height: 562px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
 
     @keyframes float {
 
       0%,
       100% {
-        transform: translateY(0)
+        transform: translate(-50%, -50%) translateY(0);
       }
 
       50% {
-        transform: translateY(-14px)
+        transform: translate(-50%, -50%) translateY(-14px);
       }
     }
 
@@ -643,9 +637,6 @@
       .hero-right {
         min-height: 500px;
         width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
       }
 
       .bg-mandala {
@@ -693,9 +684,6 @@
       .hero-right {
         min-height: 420px;
         width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
       }
 
       .bg-mandala {
