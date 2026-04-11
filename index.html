@@ -4289,10 +4289,22 @@
       }
     });
 
+    function startOnInteraction() {
+      document.removeEventListener('click', startOnInteraction);
+      document.removeEventListener('touchstart', startOnInteraction);
+      if (audio.paused) {
+        audio.play().then(() => setPlaying(true)).catch(() => {});
+      }
+    }
+
     audio.src = TRACKS[0];
     audio.play()
       .then(() => setPlaying(true))
-      .catch(() => { /* autoplay blocked — button stays in "start" state */ });
+      .catch(() => {
+        // Autoplay blocked — start on first user interaction anywhere on page
+        document.addEventListener('click', startOnInteraction);
+        document.addEventListener('touchstart', startOnInteraction, { passive: true });
+      });
   </script>
 
   <script>
