@@ -226,11 +226,16 @@
       height: 100%;
     }
 
-    /* Floating phone wrapper */
+    /* Floating phone wrapper — explicit size so flex can centre it at all breakpoints */
     .phone-wrap {
       position: relative;
       z-index: 10;
       animation: float 3.5s ease-in-out infinite;
+      width: 260px;
+      height: 562px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     @keyframes float {
@@ -528,19 +533,22 @@
       gap: 16px;
       width: max-content;
       animation: marquee 48s linear infinite;
+      will-change: transform;
+      cursor: grab;
     }
 
-    .ctrack:hover {
+    .ctrack.dragging {
+      cursor: grabbing;
       animation-play-state: paused;
     }
 
     @keyframes marquee {
       from {
-        transform: translateX(0)
+        transform: translateX(0) translateZ(0);
       }
 
       to {
-        transform: translateX(-50%)
+        transform: translateX(-50%) translateZ(0);
       }
     }
 
@@ -645,10 +653,10 @@
         height: min(400px, 90%);
       }
 
-      .phone {
-        zoom: 0.85;
+      .phone-scene {
+        transform: scale(0.85);
+        transform-origin: center center;
       }
-
 
       .footer-links {
         gap: 12px;
@@ -695,15 +703,16 @@
         height: min(320px, 88%);
       }
 
-      .phone {
-        zoom: 0.72;
+      .phone-scene {
+        transform: scale(0.72);
+        transform-origin: center center;
       }
 
-
       .footer-links {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
       }
 
       .app-palette .picon {
@@ -4294,6 +4303,93 @@
     function startMusic() { hint.classList.add('gone'); document.removeEventListener('click', startMusic); document.removeEventListener('touchstart', startMusic); audio.play().catch(() => { }); }
     audio.src = TRACKS[0];
     audio.play().then(() => hint.classList.add('gone')).catch(() => { document.addEventListener('click', startMusic); document.addEventListener('touchstart', startMusic); });
+  </script>
+
+  <script>
+    // Carousel drag-to-scroll — mouse + touch
+    (function () {
+      const track = document.querySelector('.ctrack');
+      if (!track) return;
+
+      // Read the current CSS translateX mid-animation so we can resume from there
+      function getCurrentX() {
+        const style = window.getComputedStyle(track);
+        const matrix = new DOMMatrix(style.transform);
+        return matrix.m41; // translateX value in px
+      }
+
+      // Total width of ONE set of items (half the track = the 50% the animation scrolls)
+      function getHalfWidth() {
+        return track.scrollWidth / 2;
+      }
+
+      let isDragging = false;
+      let startX = 0;
+      let baseX = 0;  // translateX when drag started
+      let dragDelta = 0;
+      const DRAG_THRESHOLD = 5; // px — below this is a tap, not a drag
+
+      function startDrag(clientX) {
+        isDragging = false; // not confirmed drag yet
+        dragDelta = 0;
+        startX = clientX;
+        baseX = getCurrentX();
+        // Pause animation but keep current position
+        track.style.transform = `translateX(${baseX}px)`;
+        track.style.animationPlayState = 'paused';
+      }
+
+      function moveDrag(clientX) {
+        const delta = clientX - startX;
+        dragDelta = delta;
+        if (Math.abs(delta) > DRAG_THRESHOLD) {
+          isDragging = true;
+          track.classList.add('dragging');
+        }
+        if (!isDragging) return;
+
+        let newX = baseX + delta;
+        const half = getHalfWidth();
+        // Wrap: keep x within [-half, 0]
+        newX = ((newX % -half) - half) % -half;
+        if (newX > 0) newX -= half;
+        track.style.transform = `translateX(${newX}px)`;
+      }
+
+      function endDrag() {
+        if (!isDragging) {
+          // It was a tap — restore animation without jumping
+          track.classList.remove('dragging');
+          track.style.transform = '';
+          track.style.animationPlayState = '';
+          return;
+        }
+        isDragging = false;
+        track.classList.remove('dragging');
+
+        // Resume CSS animation from current drag position
+        const currentX = getCurrentX();
+        const half = getHalfWidth();
+        // Normalise to 0..half range and convert to a 0-1 animation progress
+        const normalised = Math.abs(currentX) % half;
+        const progress = normalised / half; // 0 to 1
+        const duration = 48; // seconds, matches CSS
+        const elapsed = progress * duration;
+        track.style.animationDelay = `-${elapsed}s`;
+        track.style.transform = '';
+        track.style.animationPlayState = '';
+      }
+
+      // Mouse events
+      track.addEventListener('mousedown', e => { startDrag(e.clientX); });
+      window.addEventListener('mousemove', e => { if (startX !== null) moveDrag(e.clientX); });
+      window.addEventListener('mouseup', () => { if (startX !== null) { endDrag(); startX = null; } });
+
+      // Touch events
+      track.addEventListener('touchstart', e => { startDrag(e.touches[0].clientX); }, { passive: true });
+      track.addEventListener('touchmove', e => { moveDrag(e.touches[0].clientX); }, { passive: true });
+      track.addEventListener('touchend', () => { endDrag(); startX = null; });
+    })();
   </script>
 </body>
 
