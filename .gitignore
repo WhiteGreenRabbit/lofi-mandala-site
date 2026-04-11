@@ -1,0 +1,10 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Audio files — served via GitHub Releases, not committed to repo
+audio/
+
+# Editor
+.vscode/
+*.swp
