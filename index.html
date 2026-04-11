@@ -13,8 +13,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <title>Lofi Mandala — Color freely. Calm down.</title>
   <meta name="description" content="A lofi coloring experience for when you need to breathe." />
-  <link rel="icon"
-    href="data:image/svg+xml,%3Csvg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 32 32%22%3E%3Ccircle cx%3D%2216%22 cy%3D%2216%22 r%3D%2216%22 fill%3D%22%230f0e1a%22/%3E%3Ccircle cx%3D%2216%22 cy%3D%2216%22 r%3D%2213%22 fill%3D%22none%22 stroke%3D%22%23a36ccf%22 stroke-width%3D%221.5%22/%3E%3Ccircle cx%3D%2216%22 cy%3D%2216%22 r%3D%229%22 fill%3D%22none%22 stroke%3D%22%23957fef%22 stroke-width%3D%221%22/%3E%3Ccircle cx%3D%2216%22 cy%3D%2216%22 r%3D%225%22 fill%3D%22none%22 stroke%3D%22%233dafa8%22 stroke-width%3D%221%22/%3E%3Ccircle cx%3D%2216%22 cy%3D%223%22 r%3D%222%22 fill%3D%22%23a36ccf%22/%3E%3Ccircle cx%3D%2216%22 cy%3D%2229%22 r%3D%222%22 fill%3D%22%23a36ccf%22/%3E%3Ccircle cx%3D%223%22 cy%3D%2216%22 r%3D%222%22 fill%3D%22%23a36ccf%22/%3E%3Ccircle cx%3D%2229%22 cy%3D%2216%22 r%3D%222%22 fill%3D%22%23a36ccf%22/%3E%3Ccircle cx%3D%2216%22 cy%3D%2216%22 r%3D%222.5%22 fill%3D%22%233dafa8%22/%3E%3C/svg%3E" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="apple-touch-icon" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
@@ -60,67 +60,6 @@
       overflow: hidden;
     }
 
-    /* ── Nav ─────────────────────────────────────────── */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      height: 56px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 32px;
-      border-bottom: 1px solid transparent;
-      transition: background .3s, border-color .3s;
-    }
-
-    nav.scrolled {
-      background: rgba(15, 14, 26, .92);
-      backdrop-filter: blur(14px);
-      border-color: var(--border);
-    }
-
-    .nav-logo {
-      font-weight: 800;
-      font-size: 18px;
-      background: linear-gradient(90deg, var(--purple), var(--teal));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .nav-link {
-      font-size: 13px;
-      font-weight: 600;
-      color: rgba(255, 255, 255, .55);
-      transition: color .2s;
-    }
-
-    .nav-link:hover {
-      color: #fff;
-    }
-
-    .btn-store {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      font-size: 11px;
-      font-weight: 700;
-      padding: 6px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, .15);
-      color: rgba(255, 255, 255, .35);
-      cursor: default;
-      letter-spacing: .02em;
-    }
 
     .soon {
       font-size: 9px;
@@ -144,7 +83,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 80px 44px 60px 52px;
+      padding: 60px 44px 60px 52px;
       position: relative;
     }
 
@@ -680,7 +619,7 @@
       }
 
       .hero-left {
-        padding: 90px 28px 40px;
+        padding: 48px 28px 40px;
       }
 
       .hero-right {
@@ -721,6 +660,64 @@
       .app-tabs {
         height: 40px;
         bottom: 0;
+      }
+
+      .footer-links {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+
+    @media(max-width:480px) {
+      .hero-left {
+        padding: 32px 20px 32px;
+        align-items: center;
+        text-align: center;
+      }
+
+      .app-name {
+        font-size: clamp(36px, 10vw, 48px);
+      }
+
+      .tagline {
+        font-size: clamp(18px, 5vw, 24px);
+      }
+
+      .hero-desc {
+        max-width: 100%;
+        font-size: 14px;
+      }
+
+      .cta-row {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .hero-right {
+        min-height: 420px;
+      }
+
+      .bg-mandala {
+        width: min(320px, 88%);
+        height: min(320px, 88%);
+      }
+
+      .phone {
+        width: 160px;
+        height: 345px;
+        border-radius: 26px;
+      }
+
+      .phone-mandala {
+        width: 130px;
+        height: 130px;
+      }
+
+      .footer-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
       }
     }
   </style>
@@ -4071,26 +4068,6 @@
   </svg>
   <audio id="bg-music" preload="auto"></audio>
 
-  <nav id="main-nav">
-    <a href="/" class="nav-logo">Lofi Mandala</a>
-    <div class="nav-right">
-      <a href="support.html" class="nav-link">Support</a>
-      <div class="btn-store">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-          <path
-            d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
-        </svg>
-        App Store <span class="soon">soon</span>
-      </div>
-      <div class="btn-store">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-          <path
-            d="M3.18 23.76a2.5 2.5 0 0 0 3.43.95L17.5 18l-3.37-3.37zM20.5 10.5l-3.13-1.78L13.87 12l3.5 3.5 3.13-1.79a2.5 2.5 0 0 0 0-4.22zM1.05 1.5A2.5 2.5 0 0 0 .5 3v18a2.5 2.5 0 0 0 .55 1.5L13.13 12zM6.61.3a2.5 2.5 0 0 0-3.43.95L14.13 6l-3.37 3.37z" />
-        </svg>
-        Google Play <span class="soon">soon</span>
-      </div>
-    </div>
-  </nav>
 
   <section class="hero">
     <div class="hero-left">
@@ -4304,8 +4281,6 @@
   <div class="music-hint" id="musicHint">&#9834; click to start music</div>
 
   <script>
-    const nav = document.getElementById('main-nav');
-    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 20));
     const TRACKS = [
       'https://lofimandala.com/audio/Neon.Bento.Dreams.mp3',
       'https://lofimandala.com/audio/Soft.Window.Light.mp3',
