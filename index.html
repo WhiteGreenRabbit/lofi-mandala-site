@@ -4358,16 +4358,42 @@
       const track = document.getElementById('ctrack');
       if (!track) return;
 
-      const SPEED = 0.4;        // px per frame (~24px/s at 60fps)
+      const SPEED = 0.4;   // px per frame (~24px/s at 60fps)
+      const GAP = 16;      // must match CSS gap on .ctrack
+
       let offset = 0;
-      let halfWidth = 0;
       let dragging = false;
       let dragStartX = 0;
       let dragStartOffset = 0;
 
+      // Snapshot the original set of items before we clone anything
+      const origItems = [...track.children];
+      const origCount = origItems.length;
+
+      // Exact one-set width: N × (itemWidth + gap).
+      // Using getBoundingClientRect for sub-pixel accuracy.
+      const itemWidth = origItems[0].getBoundingClientRect().width;
+      const setWidth = origCount * (itemWidth + GAP);
+
+      // Clone until track extends at least one full viewport past the loop point.
+      // This ensures no screen size ever sees the edge of the track.
+      function ensureWidth() {
+        const needed = setWidth + window.innerWidth;
+        while (track.scrollWidth < needed) {
+          origItems.forEach(el => {
+            const clone = el.cloneNode(true);
+            clone.setAttribute('aria-hidden', 'true');
+            clone.removeAttribute('role');
+            track.appendChild(clone);
+          });
+        }
+      }
+      ensureWidth();
+      window.addEventListener('resize', ensureWidth, { passive: true });
+
       function applyOffset() {
-        halfWidth = track.scrollWidth / 2;
-        offset = ((offset % halfWidth) + halfWidth) % halfWidth;
+        // Reset at exact set boundary — no fractional-gap drift
+        offset = ((offset % setWidth) + setWidth) % setWidth;
         track.style.transform = `translateX(-${offset}px) translateZ(0)`;
       }
 
