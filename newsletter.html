@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Newsletter — Lofi Mandala</title>
+  <meta name="description" content="Stay in the loop — new mandalas, updates, and lofi moments from Lofi Mandala." />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0f0e1a;
+      --purple: #a36ccf;
+      --teal: #3dafa8;
+      --lav: #957fef;
+      --text: #e8e6f0;
+      --muted: #8884a8;
+      --border: rgba(255, 255, 255, .08);
+    }
+
+    body {
+      font-family: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Nav ─────────────────────────────────────────── */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 40px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(15, 14, 26, .92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav-logo {
+      font-size: 18px;
+      font-weight: 900;
+      background: linear-gradient(120deg, #e8d8ff 0%, #c8a8f8 40%, #7de8e0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+      transition: color .2s;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--text); }
+
+    /* ── Main ────────────────────────────────────────── */
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 64px 24px 72px;
+    }
+
+    .mandala-logo {
+      width: 110px;
+      height: 110px;
+      margin-bottom: 28px;
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -.02em;
+      background: linear-gradient(120deg, #e8d8ff 0%, #c8a8f8 40%, #7de8e0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .subtitle {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 44px;
+      text-align: center;
+      max-width: 420px;
+      line-height: 1.6;
+    }
+
+    .embed-wrapper {
+      width: 100%;
+      max-width: 560px;
+    }
+
+    /* ── Footer ──────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      background: rgba(9, 8, 18, .5);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .footer-links a {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+      transition: color .2s;
+    }
+
+    .footer-links a:hover { color: var(--text); }
+
+    .footer-copy {
+      font-size: 12px;
+      color: rgba(255, 255, 255, .18);
+    }
+
+    /* ── Mobile ──────────────────────────────────────── */
+    @media (max-width: 600px) {
+      nav { padding: 14px 20px; }
+      .nav-links { gap: 16px; }
+      h1 { font-size: 26px; }
+      footer { padding: 24px 20px; }
+      .footer-links { gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="/">Lofi Mandala</a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="support.html">Contact</a></li>
+      <li><a href="privacy.html">Privacy</a></li>
+      <li><a href="music-licensing.html">Music</a></li>
+      <li><a href="newsletter.html" class="active">Newsletter</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <img class="mandala-logo" src="favicon.svg" alt="Lofi Mandala" />
+
+    <h1>Stay in the loop</h1>
+    <p class="subtitle">New mandalas, updates, and lofi moments — straight to your inbox. No spam, ever.</p>
+
+    <div class="embed-wrapper">
+      <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
+      <iframe src="https://subscribe-forms.beehiiv.com/913e094a-ecfe-4c03-a3c6-9a8ceabfb382" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0" scrolling="no" style="width:100%; height:315px; margin:0; border-radius:0 !important; background-color:transparent; box-shadow:0 0 #0000;"></iframe>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="music-licensing.html">Music Agreement</a>
+      <a href="support.html">Contact</a>
+      <a href="newsletter.html">Newsletter</a>
+    </div>
+    <div class="footer-copy">&copy; 2026 Lofi Mandala &middot; White Green Rabbit</div>
+  </footer>
+
+</body>
+</html>
