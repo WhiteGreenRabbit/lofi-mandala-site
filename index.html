@@ -230,6 +230,27 @@
       background: rgba(255, 255, 255, .04);
     }
 
+    .btn-signup {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 13px;
+      font-weight: 800;
+      padding: 12px 22px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #c8a8f8, #957fef);
+      color: #fff;
+      box-shadow: 0 6px 20px rgba(149, 127, 239, .35);
+      cursor: pointer;
+      transition: opacity .2s, transform .15s;
+      text-decoration: none;
+    }
+
+    .btn-signup:hover {
+      opacity: .88;
+      transform: translateY(-1px);
+    }
+
     /* Right — transparent so hero gradient shows through */
     .hero-right {
       background: transparent;
@@ -4136,6 +4157,12 @@
           </svg>
           Google Play <span class="soon">soon</span>
         </div>
+        <a href="newsletter.html" class="btn-signup">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+          </svg>
+          Get Notified
+        </a>
       </div>
     </div>
 
