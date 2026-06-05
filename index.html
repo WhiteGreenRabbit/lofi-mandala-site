@@ -27,6 +27,7 @@
   <meta property="og:image" content="https://lofimandala.com/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Lofi Mandala — a calming mandala coloring app with lofi music" />
   <meta property="og:site_name" content="Lofi Mandala" />
   <meta property="og:locale" content="en_US" />
 
@@ -35,8 +36,9 @@
   <meta name="twitter:title" content="Lofi Mandala — Free Mandala Coloring App" />
   <meta name="twitter:description" content="Color beautiful mandalas at your own pace with lofi music. Free on iOS." />
   <meta name="twitter:image" content="https://lofimandala.com/og-image.png" />
+  <meta name="twitter:image:alt" content="Lofi Mandala — a calming mandala coloring app with lofi music" />
 
-  <!-- JSON-LD Structured Data — MobileApplication schema -->
+  <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -51,13 +53,31 @@
       "priceCurrency": "USD"
     },
     "url": "https://lofimandala.com",
+    "downloadUrl": "https://apps.apple.com/app/id6764457673",
     "author": {
       "@type": "Organization",
       "name": "White Green Rabbit"
     }
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Lofi Mandala",
+    "url": "https://lofimandala.com"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "White Green Rabbit",
+    "url": "https://lofimandala.com"
+  }
+  </script>
 
+  <meta name="apple-itunes-app" content="app-id=6764457673" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="apple-touch-icon" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -4143,14 +4163,15 @@
   <audio id="bg-music" preload="auto"></audio>
 
 
+  <main>
   <section class="hero">
     <div class="hero-left">
-      <div class="app-name">Lofi Mandala</div>
+      <h1 class="app-name">Lofi Mandala</h1>
       <div class="tagline">Color freely.<br>Calm down.</div>
       <p class="hero-desc">A lofi coloring experience for when you need to relax. Pick a mandala, choose your colors,
         and get lost in lofi.</p>
       <div class="cta-row">
-        <a href="https://apps.apple.com/ca/app/lofi-mandala/id6764457673" class="btn-dl apple" target="_blank" rel="noopener">
+        <a href="https://apps.apple.com/app/id6764457673" class="btn-dl apple" target="_blank" rel="noopener">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
             <path
               d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
@@ -4309,14 +4330,15 @@
       <div class="ci" role="img" aria-label="Mandala coloring app — red warm design" aria-hidden="true"><svg viewBox="0 0 800 800" style="width:100%;height:100%;"><use href="#m16-fill"/></svg></div>
     </div>
   </div>
+  </main>
 
   <footer>
-    <div class="footer-links">
+    <nav aria-label="Footer" class="footer-links">
       <a href="privacy.html">Privacy</a>
       <a href="music-licensing.html">Music Agreement</a>
       <a href="support.html">Contact</a>
       <a href="newsletter.html">Newsletter</a>
-    </div>
+    </nav>
     <div class="footer-copy">&copy; 2026 Lofi Mandala &middot; White Green Rabbit</div>
   </footer>
 
