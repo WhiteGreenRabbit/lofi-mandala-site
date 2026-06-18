@@ -6,6 +6,13 @@ All notable changes to the website are documented here.
 
 ## [Unreleased]
 
+### 17 June 2026 — OneSignal push notification disclosure (PAI-204)
+
+- `privacy.html` — added Push Notifications section explaining opt-in, push token collection, and per-platform opt-out instructions
+- `privacy.html` — added OneSignal to Third-Party Services section with link to their privacy policy
+- `privacy.html` — updated short version blurb to mention push notifications and opt-out
+- Last updated date bumped to June 17, 2026
+
 ---
 
 ## 2026-06-05
