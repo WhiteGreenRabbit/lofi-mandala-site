@@ -6,6 +6,14 @@ All notable changes to the website are documented here.
 
 ## [Unreleased]
 
+### 6 August 2026 — Ambience audio licensing disclosure (PAI-249)
+
+- `music-licensing.html` — narrowed the Suno claim from "All music tracks" to "The music tracks"; the blanket statement became inaccurate once Pixabay-sourced ambience audio shipped in app 2.0.0
+- `music-licensing.html` — added Ambience Sounds section covering Pixabay sourcing, the Content License, and the no-standalone-redistribution position
+- `music-licensing.html` — added intro paragraph distinguishing the two audio types and their separate licensing
+- h1, meta description, OG and Twitter tags updated to "Music & Audio Licensing" — note the `<title>` tag still reads "Music Licensing", left deliberately unchanged pending a decision
+- Last updated date bumped to August 2026
+
 ### 17 June 2026 — OneSignal push notification disclosure (PAI-204)
 
 - `privacy.html` — added Push Notifications section explaining opt-in, push token collection, and per-platform opt-out instructions
